@@ -27,7 +27,6 @@
   </head>
   <body>
     <section
-    style="background-image: url('{{ asset('img/background.jpg')}} ')"
       class="w-full font-poppins h-screen  bg-center bg-cover"
     >
       <div class="overlay bg-theme-secondary/90 w-full h-screen">
@@ -38,19 +37,26 @@
           >
             @csrf
             <div class="form-wrapping space-y-12">
-              <div class="flex justify-center">
+              <!-- <div class="flex justify-center">
                 <img
-                  src="{{asset('img/logo.svg')}}"
+                  src="{{asset('img/logo-bprsarifull.svg')}}"
                   alt="logo bank umkm"
                   class=""
                 />
-              </div>
+              </div> -->
               <div class="bg-white w-full p-8 rounded-[10px]">
+              <div class="flex justify-center">
+                <img
+                  src="{{asset('img/logo-bprsarifull.svg')}}"
+                  alt="logo bpr sari bumi"
+                  class=""
+                />
+              </div>
                 <div class="head text-center">
                   <h2
                     class="font-semibold text-theme-secondary tracking-tighter text-xl"
                   >
-                    Login Pincetar
+                    <!-- Login Pincetar -->
                     @if (session('error'))
                     <div class="p-2">
                         <div class="alert alert-danger">
@@ -145,7 +151,7 @@
                       <button
                         type="submit"
                         id="login-button"
-                        class="bg-theme-primary hover:bg-red-700 py-5 rounded-md font-semibold tracking-tighter text-white w-full"
+                        class="bg-theme-primary hover:bg-blue-700 py-5 rounded-md font-semibold tracking-tighter text-white w-full"
                       >
                         Masuk
                       </button>
@@ -154,7 +160,7 @@
                 </div>
               </div>
               <div class="copyright text-center font-semibold text-white">
-                Copyright 2022 - {{ date('Y') }} PT. BPR Jatim
+                Copyright 2022 - {{ date('Y') }} PT. Barouk Raya Technology
               </div>
             </div>
           </form>

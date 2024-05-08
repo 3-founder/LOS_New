@@ -1,7 +1,7 @@
 <nav
     class="sidebar lg:relative z-40 lg:z-10 fixed lg:block hidden font-plus-jakarta-sans w-[250px] border bg-white h-screen">
     <div class="head-sidebar p-3 border-b">
-        <img src="{{ asset('img/logo-nav.png') }}" alt="logo" class="w-[200px]" />
+        <img src="{{ asset('img/logo-bprsarifull.png') }}" alt="logo" class="w-[200px]" />
         <button class="absolute toggle-menu -right-7 lg:hidden block px-5 py-2 bg-white border rounded-full top-2">
             <iconify-icon icon="fa6-solid:angle-left" class="text-lg mt-2"></iconify-icon>
         </button>

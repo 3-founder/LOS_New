@@ -117,7 +117,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module) {
 
 /*!
-* sweetalert2 v11.10.1
+* sweetalert2 v11.10.8
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -125,6 +125,34 @@ __webpack_require__.r(__webpack_exports__);
   0;
 })(this, (function () { 'use strict';
 
+  function _assertClassBrand(e, t, n) {
+    if ("function" == typeof e ? e === t : e.has(t)) return arguments.length < 3 ? t : n;
+    throw new TypeError("Private element is not present on this object");
+  }
+  function _callSuper(t, o, e) {
+    return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e));
+  }
+  function _classPrivateFieldGet2(s, a) {
+    return s.get(_assertClassBrand(s, a));
+  }
+  function _classPrivateFieldSet2(s, a, r) {
+    return s.set(_assertClassBrand(s, a), r), r;
+  }
+  function _construct(t, e, r) {
+    if (_isNativeReflectConstruct()) return Reflect.construct.apply(null, arguments);
+    var o = [null];
+    o.push.apply(o, e);
+    var p = new (t.bind.apply(t, o))();
+    return r && _setPrototypeOf(p, r.prototype), p;
+  }
+  function _isNativeReflectConstruct() {
+    try {
+      var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+    } catch (t) {}
+    return (_isNativeReflectConstruct = function () {
+      return !!t;
+    })();
+  }
   function _iterableToArrayLimit(r, l) {
     var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
     if (null != t) {
@@ -151,6 +179,20 @@ __webpack_require__.r(__webpack_exports__);
       }
       return a;
     }
+  }
+  function _toPrimitive(t, r) {
+    if ("object" != typeof t || !t) return t;
+    var e = t[Symbol.toPrimitive];
+    if (void 0 !== e) {
+      var i = e.call(t, r || "default");
+      if ("object" != typeof i) return i;
+      throw new TypeError("@@toPrimitive must return a primitive value.");
+    }
+    return ("string" === r ? String : Number)(t);
+  }
+  function _toPropertyKey(t) {
+    var i = _toPrimitive(t, "string");
+    return "symbol" == typeof i ? i : i + "";
   }
   function _typeof(o) {
     "@babel/helpers - typeof";
@@ -212,32 +254,6 @@ __webpack_require__.r(__webpack_exports__);
     };
     return _setPrototypeOf(o, p);
   }
-  function _isNativeReflectConstruct() {
-    if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-    if (Reflect.construct.sham) return false;
-    if (typeof Proxy === "function") return true;
-    try {
-      Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
-      return true;
-    } catch (e) {
-      return false;
-    }
-  }
-  function _construct(Parent, args, Class) {
-    if (_isNativeReflectConstruct()) {
-      _construct = Reflect.construct.bind();
-    } else {
-      _construct = function _construct(Parent, args, Class) {
-        var a = [null];
-        a.push.apply(a, args);
-        var Constructor = Function.bind.apply(Parent, a);
-        var instance = new Constructor();
-        if (Class) _setPrototypeOf(instance, Class.prototype);
-        return instance;
-      };
-    }
-    return _construct.apply(null, arguments);
-  }
   function _assertThisInitialized(self) {
     if (self === void 0) {
       throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
@@ -251,20 +267,6 @@ __webpack_require__.r(__webpack_exports__);
       throw new TypeError("Derived constructors may only return object or undefined");
     }
     return _assertThisInitialized(self);
-  }
-  function _createSuper(Derived) {
-    var hasNativeReflectConstruct = _isNativeReflectConstruct();
-    return function _createSuperInternal() {
-      var Super = _getPrototypeOf(Derived),
-        result;
-      if (hasNativeReflectConstruct) {
-        var NewTarget = _getPrototypeOf(this).constructor;
-        result = Reflect.construct(Super, arguments, NewTarget);
-      } else {
-        result = Super.apply(this, arguments);
-      }
-      return _possibleConstructorReturn(this, result);
-    };
   }
   function _superPropBase(object, property) {
     while (!Object.prototype.hasOwnProperty.call(object, property)) {
@@ -322,51 +324,6 @@ __webpack_require__.r(__webpack_exports__);
   }
   function _nonIterableRest() {
     throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-  }
-  function _toPrimitive(input, hint) {
-    if (typeof input !== "object" || input === null) return input;
-    var prim = input[Symbol.toPrimitive];
-    if (prim !== undefined) {
-      var res = prim.call(input, hint || "default");
-      if (typeof res !== "object") return res;
-      throw new TypeError("@@toPrimitive must return a primitive value.");
-    }
-    return (hint === "string" ? String : Number)(input);
-  }
-  function _toPropertyKey(arg) {
-    var key = _toPrimitive(arg, "string");
-    return typeof key === "symbol" ? key : String(key);
-  }
-  function _classPrivateFieldGet(receiver, privateMap) {
-    var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get");
-    return _classApplyDescriptorGet(receiver, descriptor);
-  }
-  function _classPrivateFieldSet(receiver, privateMap, value) {
-    var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set");
-    _classApplyDescriptorSet(receiver, descriptor, value);
-    return value;
-  }
-  function _classExtractFieldDescriptor(receiver, privateMap, action) {
-    if (!privateMap.has(receiver)) {
-      throw new TypeError("attempted to " + action + " private field on non-instance");
-    }
-    return privateMap.get(receiver);
-  }
-  function _classApplyDescriptorGet(receiver, descriptor) {
-    if (descriptor.get) {
-      return descriptor.get.call(receiver);
-    }
-    return descriptor.value;
-  }
-  function _classApplyDescriptorSet(receiver, descriptor, value) {
-    if (descriptor.set) {
-      descriptor.set.call(receiver, value);
-    } else {
-      if (!descriptor.writable) {
-        throw new TypeError("attempted to set read only private field");
-      }
-      descriptor.value = value;
-    }
   }
   function _checkPrivateRedeclaration(obj, privateCollection) {
     if (privateCollection.has(obj)) {
@@ -690,24 +647,21 @@ __webpack_require__.r(__webpack_exports__);
    * @returns {HTMLButtonElement | null}
    */
   var getConfirmButton = function getConfirmButton() {
-    return (/** @type {HTMLButtonElement} */elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.confirm))
-    );
+    return /** @type {HTMLButtonElement} */elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.confirm));
   };
 
   /**
    * @returns {HTMLButtonElement | null}
    */
   var getCancelButton = function getCancelButton() {
-    return (/** @type {HTMLButtonElement} */elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.cancel))
-    );
+    return /** @type {HTMLButtonElement} */elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.cancel));
   };
 
   /**
    * @returns {HTMLButtonElement | null}
    */
   var getDenyButton = function getDenyButton() {
-    return (/** @type {HTMLButtonElement} */elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.deny))
-    );
+    return /** @type {HTMLButtonElement} */elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.deny));
   };
 
   /**
@@ -995,7 +949,7 @@ __webpack_require__.r(__webpack_exports__);
       value = parseInt(value);
     }
     if (value || parseInt(value) === 0) {
-      elem.style[property] = typeof value === 'number' ? "".concat(value, "px") : value;
+      elem.style.setProperty(property, typeof value === 'number' ? "".concat(value, "px") : value);
     } else {
       elem.style.removeProperty(property);
     }
@@ -1041,10 +995,10 @@ __webpack_require__.r(__webpack_exports__);
    * @param {string} value
    */
   var setStyle = function setStyle(parent, selector, property, value) {
-    /** @type {HTMLElement} */
+    /** @type {HTMLElement | null} */
     var el = parent.querySelector(selector);
     if (el) {
-      el.style[property] = value;
+      el.style.setProperty(property, value);
     }
   };
 
@@ -1947,9 +1901,9 @@ __webpack_require__.r(__webpack_exports__);
     icon.style.borderColor = params.iconColor;
     for (var _i2 = 0, _arr = ['.swal2-success-line-tip', '.swal2-success-line-long', '.swal2-x-mark-line-left', '.swal2-x-mark-line-right']; _i2 < _arr.length; _i2++) {
       var sel = _arr[_i2];
-      setStyle(icon, sel, 'backgroundColor', params.iconColor);
+      setStyle(icon, sel, 'background-color', params.iconColor);
     }
-    setStyle(icon, '.swal2-success-ring', 'borderColor', params.iconColor);
+    setStyle(icon, '.swal2-success-ring', 'border-color', params.iconColor);
   };
 
   /**
@@ -2313,7 +2267,6 @@ __webpack_require__.r(__webpack_exports__);
       if (['textarea', 'file'].includes(innerParams.input)) {
         return; // do not submit
       }
-
       clickConfirm();
       event.preventDefault();
     }
@@ -2414,9 +2367,10 @@ __webpack_require__.r(__webpack_exports__);
   // reader’s list of elements (headings, form controls, landmarks, etc.) in the document.
 
   var setAriaHidden = function setAriaHidden() {
+    var container = getContainer();
     var bodyChildren = Array.from(document.body.children);
     bodyChildren.forEach(function (el) {
-      if (el === getContainer() || el.contains(getContainer())) {
+      if (el.contains(container)) {
         return;
       }
       if (el.hasAttribute('aria-hidden')) {
@@ -2771,7 +2725,6 @@ __webpack_require__.r(__webpack_exports__);
     if (!popup) {
       new Swal(); // eslint-disable-line no-new
     }
-
     popup = getPopup();
     if (!popup) {
       return;
@@ -3101,7 +3054,7 @@ __webpack_require__.r(__webpack_exports__);
       handleInputValidator(instance, inputValue, type);
     } else if (input && !input.checkValidity()) {
       instance.enableButtons();
-      instance.showValidationMessage(innerParams.validationMessage);
+      instance.showValidationMessage(innerParams.validationMessage || input.validationMessage);
     } else if (type === 'deny') {
       deny(instance, inputValue);
     } else {
@@ -3749,7 +3702,11 @@ __webpack_require__.r(__webpack_exports__);
    * @param {DomCache} domCache
    */
   var handleContainerMousedown = function handleContainerMousedown(domCache) {
-    domCache.container.onmousedown = function () {
+    domCache.container.onmousedown = function (e) {
+      // prevent the modal text from being selected on double click on the container (allowOutsideClick: false)
+      if (e.target === domCache.container) {
+        e.preventDefault();
+      }
       domCache.popup.onmouseup = function (e) {
         domCache.popup.onmouseup = function () {};
         // We also need to check if the mouseup target is a child of the popup
@@ -3835,19 +3792,17 @@ __webpack_require__.r(__webpack_exports__);
    */
   function mixin(mixinParams) {
     var MixinSwal = /*#__PURE__*/function (_this) {
-      _inherits(MixinSwal, _this);
-      var _super = _createSuper(MixinSwal);
       function MixinSwal() {
         _classCallCheck(this, MixinSwal);
-        return _super.apply(this, arguments);
+        return _callSuper(this, MixinSwal, arguments);
       }
-      _createClass(MixinSwal, [{
+      _inherits(MixinSwal, _this);
+      return _createClass(MixinSwal, [{
         key: "_main",
         value: function _main(params, priorityMixinParams) {
           return _get(_getPrototypeOf(MixinSwal.prototype), "_main", this).call(this, params, Object.assign({}, mixinParams, priorityMixinParams));
         }
       }]);
-      return MixinSwal;
     }(this); // @ts-ignore
     return MixinSwal;
   }
@@ -4013,7 +3968,7 @@ __webpack_require__.r(__webpack_exports__);
     /**
      * @returns {number}
      */
-    _createClass(Timer, [{
+    return _createClass(Timer, [{
       key: "start",
       value: function start() {
         if (!this.running) {
@@ -4078,7 +4033,6 @@ __webpack_require__.r(__webpack_exports__);
         return this.running;
       }
     }]);
-    return Timer;
   }();
 
   var swalStringParams = ['swal-title', 'swal-html', 'swal-footer'];
@@ -4404,7 +4358,7 @@ __webpack_require__.r(__webpack_exports__);
      * @returns {Promise<string | void>}
      */
     email: function email(string, validationMessage) {
-      return /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]{2,24}$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid email address');
+      return /^[a-zA-Z0-9.+_'-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]+$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid email address');
     },
     /**
      * @param {string} string
@@ -4478,10 +4432,7 @@ __webpack_require__.r(__webpack_exports__);
       /**
        * @type {Promise<SweetAlertResult>}
        */
-      _classPrivateFieldInitSpec(this, _promise, {
-        writable: true,
-        value: void 0
-      });
+      _classPrivateFieldInitSpec(this, _promise, void 0);
       // Prevent run in Node env
       if (typeof window === 'undefined') {
         return;
@@ -4499,9 +4450,9 @@ __webpack_require__.r(__webpack_exports__);
 
       /** @type {boolean} */
       this.isAwaitingPromise = false;
-      _classPrivateFieldSet(this, _promise, this._main(currentInstance.params));
+      _classPrivateFieldSet2(_promise, this, this._main(currentInstance.params));
     }
-    _createClass(SweetAlert, [{
+    return _createClass(SweetAlert, [{
       key: "_main",
       value: function _main(userParams) {
         var mixinParams = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -4542,15 +4493,14 @@ __webpack_require__.r(__webpack_exports__);
     }, {
       key: "then",
       value: function then(onFulfilled) {
-        return _classPrivateFieldGet(this, _promise).then(onFulfilled);
+        return _classPrivateFieldGet2(_promise, this).then(onFulfilled);
       }
     }, {
       key: "finally",
       value: function _finally(onFinally) {
-        return _classPrivateFieldGet(this, _promise)["finally"](onFinally);
+        return _classPrivateFieldGet2(_promise, this)["finally"](onFinally);
       }
     }]);
-    return SweetAlert;
   }();
 
   /**
@@ -4766,7 +4716,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   });
   SweetAlert.DismissReason = DismissReason;
-  SweetAlert.version = '11.10.1';
+  SweetAlert.version = '11.10.8';
 
   var Swal = SweetAlert;
   // @ts-ignore
