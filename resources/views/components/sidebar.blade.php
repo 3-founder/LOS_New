@@ -4,7 +4,7 @@
         >
           <div class="head-sidebar p-3 border-b">
             <img
-              src="{{ asset('img/favicon.png') }}"
+              src="{{ asset('img/logo-bprsari.png') }}"
               alt="logo"
               class="w-[40px] mx-auto"
             />
