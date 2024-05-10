@@ -31,7 +31,7 @@
     {{-- <link href="assets/build/css/default.css" rel="stylesheet"> --}}
 
     <link rel="stylesheet" href="{{ asset('') }}css/custom.css" />
-    <link rel="icon" href="{{ asset('') }}img/favicon.png" type="image/gif" sizes="16x6" />
+    <link rel="icon" href="{{ asset('') }}img/logo-bprsari.png" type="image/gif" sizes="16x6" />
     <script src="https://cdn.jsdelivr.net/npm/autonumeric@4.5.4"></script>
     @stack('extraStyle')
 </head>
