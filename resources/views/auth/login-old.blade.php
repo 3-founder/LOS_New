@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="{{ asset('') }}css/custom.css" />
     <link rel="icon" href="{{ asset('') }}img/logo-bprsari.png" type="image/gif" sizes="16x6" />
-    <title>Analisa Kredit | BPRSARI BUMI</title>
+    <title>Analisa Kredit | BPR SARIBUMI</title>
     <style>
         body{
             background: var(--colorDarkBlue);
